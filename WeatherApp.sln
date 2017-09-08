@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Tests", "WeatherApp.Tests\WeatherApp.Tests.csproj", "{01289F0B-8F09-4F7C-BFFC-CB79D9409652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{A8967A11-ABEB-41C0-BB4E-53541C01DA10}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Providers", "Providers\Providers.csproj", "{2209C843-4A61-4205-A795-7A658C3D5D44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3FA39CFE-C236-4CD0-B3B0-BA1D1D994E2D}"
@@ -27,10 +25,6 @@ Global
 		{01289F0B-8F09-4F7C-BFFC-CB79D9409652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01289F0B-8F09-4F7C-BFFC-CB79D9409652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01289F0B-8F09-4F7C-BFFC-CB79D9409652}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8967A11-ABEB-41C0-BB4E-53541C01DA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8967A11-ABEB-41C0-BB4E-53541C01DA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8967A11-ABEB-41C0-BB4E-53541C01DA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8967A11-ABEB-41C0-BB4E-53541C01DA10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2209C843-4A61-4205-A795-7A658C3D5D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2209C843-4A61-4205-A795-7A658C3D5D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2209C843-4A61-4205-A795-7A658C3D5D44}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -223,10 +223,6 @@
       <Project>{2209c843-4a61-4205-a795-7a658c3d5d44}</Project>
       <Name>Providers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{a8967a11-abeb-41c0-bb4e-53541c01da10}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

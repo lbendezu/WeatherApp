@@ -9,7 +9,7 @@ using WeatherApp.Controllers;
 
 namespace WeatherApp.Tests.Controllers
 {
-  [TestClass]
+  //[TestClass]
   public class HomeControllerTest
   {
     [TestMethod]

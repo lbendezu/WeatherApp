@@ -14,13 +14,14 @@ namespace WeatherApp.Controllers
   {
     private IWeatherProvider weatherProvider;
 
-    
+
 
     public ActionResult Index()
     {
-      weatherProvider = DependencyConfig.Container.GetInstance<IWeatherProvider>("DarkSky");
+      var model = SeedData();
+      //weatherProvider = DependencyConfig.Container.GetInstance<IWeatherProvider>("DarkSky");
 
-      return View();
+      return View(model);
     }
 
     public ActionResult About()
@@ -37,13 +38,14 @@ namespace WeatherApp.Controllers
       return View();
     }
 
-    private ForecastModel SeedData() {
-      var model = new ForecastModel();      
-      model.Countries.Add(new City() { Name = "Buenos Aires/Argentina", Latitude = (decimal)-34.603684, Longtude = (decimal)-58.381559 });
-      model.Countries.Add(new City() { Name = "Lima/Peru", Latitude = (decimal)-12.046373, Longtude = (decimal)-77.042754 });
-      model.Countries.Add(new City() { Name = "New York/United States Of America", Latitude = (decimal)40.712784, Longtude = (decimal)-74.005941 });
-      model.Countries.Add(new City() { Name = "Paris/France", Latitude = (decimal)48.856614, Longtude = (decimal)2.352222 });
-      model.Countries.Add(new City() { Name = "Toronto/Canada", Latitude = (decimal)43.653226, Longtude = (decimal)-79.383184 });
+    private ForecastModel SeedData()
+    {
+      var model = new ForecastModel();
+      model.Cities.Add(new City() { Name = "Buenos Aires/Argentina", LocationInfo = new GeoData() { Latitude = (decimal)-34.603684, Longtude = (decimal)-58.381559 } });
+      model.Cities.Add(new City() { Name = "Lima/Peru", LocationInfo = new GeoData() { Latitude = (decimal)-12.046373, Longtude = (decimal)-77.042754 } });
+      model.Cities.Add(new City() { Name = "New York/United States Of America", LocationInfo = new GeoData() { Latitude = (decimal)40.712784, Longtude = (decimal)-74.005941 } });
+      model.Cities.Add(new City() { Name = "Paris/France", LocationInfo = new GeoData() { Latitude = (decimal)48.856614, Longtude = (decimal)2.352222 } });
+      model.Cities.Add(new City() { Name = "Toronto/Canada", LocationInfo = new GeoData() { Latitude = (decimal)43.653226, Longtude = (decimal)-79.383184 } });
 
       model.Providers.Add(new ForecastProvider() { Name = "DarkSky.net", Alias = "DarkSky" });
       model.Providers.Add(new ForecastProvider() { Name = "WeatherUnderground.com", Alias = "WUnderground" });

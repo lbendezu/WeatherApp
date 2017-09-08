@@ -1,7 +1,6 @@
 ﻿using LightInject;
 using Models;
 using Providers;
-using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,6 @@ namespace WeatherApp.App_Start
     public static void Configure()
     {
       Container = new ServiceContainer();
-      Container.Register<IWeatherService, WeatherService>();
       Container.Register<IWeatherProvider, DarkSkyProvider>("DarkSky");
       Container.Register<IWeatherProvider, WUndergroundProvider>("WUnderground");
       Container.Register<IRequestHandler, RequestHandler>();
