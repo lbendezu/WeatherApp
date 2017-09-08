@@ -7,11 +7,16 @@ namespace WeatherApp.Models
 {
   public class ForecastModel
   {
-    public List<Country> Countries { get; set; }
+    public ForecastModel() {
+      Countries = new List<City>();
+      Providers = new List<ForecastProvider>();
+    }
+
+    public List<City> Countries { get; set; }
     public List<ForecastProvider> Providers { get; set; }
   }
 
-  public class Country {
+  public class City {
     public string Name { get; set; }
     public decimal Latitude { get; set; }
     public decimal Longtude { get; set; }
