@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Providers
 {
-  public class RequestHandler
+  public class RequestHandler : IRequestHandler
   {
-    public static T GetDeserializedObjectFromRequest<T>(string url) where T : class
+    public T GetDeserializedObjectFromRequest<T>(string url) where T : class
     {
       T deserializedObject = null;
 

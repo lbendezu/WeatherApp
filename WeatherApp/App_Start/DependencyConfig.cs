@@ -19,6 +19,7 @@ namespace WeatherApp.App_Start
       Container.Register<IWeatherService, WeatherService>();
       Container.Register<IWeatherProvider, DarkSkyProvider>("DarkSky");
       Container.Register<IWeatherProvider, WUndergroundProvider>("WUnderground");
+      Container.Register<IRequestHandler, RequestHandler>();
       Container.RegisterControllers();
     }
   }

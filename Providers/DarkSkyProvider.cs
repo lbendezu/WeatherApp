@@ -11,6 +11,13 @@ namespace Providers
 {
   public class DarkSkyProvider : IWeatherProvider
   {
+    IRequestHandler requestHandler;
+
+    public DarkSkyProvider(IRequestHandler requestHandler)
+    {
+      this.requestHandler = requestHandler;
+    }
+
     public WeatherDashboardModel GetForecast(long latitude, long longitude)
     {
       string darkSkyApiUrl = ConfigurationManager.AppSettings[Constants.DARK_SKY_API_URL];
@@ -18,7 +25,7 @@ namespace Providers
 
       var url = string.Format(darkSkyApiUrl, darkSkyApiKey, latitude, longitude);
 
-      var response = RequestHandler.GetDeserializedObjectFromRequest<DarkSkyModel>(url);
+      var response = requestHandler.GetDeserializedObjectFromRequest<DarkSkyModel>(url);
 
       var model = new WeatherDashboardModel(response);
 

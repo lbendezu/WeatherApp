@@ -10,6 +10,13 @@ namespace Providers
 {
   public class WUndergroundProvider : IWeatherProvider
   {
+    IRequestHandler requestHandler;
+
+    public WUndergroundProvider(IRequestHandler requestHandler)
+    {
+      this.requestHandler = requestHandler;
+    }
+
     public WeatherDashboardModel GetForecast(long latitude, long longitude)
     {
       string wUndergroundApiUrl = ConfigurationManager.AppSettings[Constants.WUNDERGROUND_API_URL];
@@ -17,7 +24,7 @@ namespace Providers
 
       var url = string.Format(wUndergroundApiUrl, wUndergroundApiKey, latitude, longitude);
 
-      var response = RequestHandler.GetDeserializedObjectFromRequest<WUndergroundModel>(url);
+      var response = requestHandler.GetDeserializedObjectFromRequest<WUndergroundModel>(url);
 
       var model = new WeatherDashboardModel(response);
 
