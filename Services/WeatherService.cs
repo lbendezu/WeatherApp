@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-  class WeatherService
+  public class WeatherService : IWeatherService
   {
   }
 }

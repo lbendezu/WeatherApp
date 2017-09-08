@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WeatherDashboardModel.cs" />
     <Compile Include="WUndergroundModel.cs" />
     <Compile Include="DarkSkyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
