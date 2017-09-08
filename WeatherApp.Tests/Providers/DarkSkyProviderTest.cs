@@ -21,8 +21,8 @@ namespace WeatherApp.Tests.Providers
       model.Currently.Temperature = 30;
       model.Currently.Time = 1111111;
       model.Daily = new Daily();
-      model.Daily.data = new List<DarkSkyDay>();
-      model.Daily.data.Add(new DarkSkyDay() { Icon = "Numb", Summary = "Cloudy", TemperatureLow = 20, TemperatureHigh = 50, Time = 1122323 });
+      model.Daily.Data = new List<DarkSkyDay>();
+      model.Daily.Data.Add(new DarkSkyDay() { Icon = "Numb", Summary = "Cloudy", TemperatureLow = 20, TemperatureHigh = 50, Time = 1122323 });
       return model;
     }
 
@@ -33,7 +33,7 @@ namespace WeatherApp.Tests.Providers
     }
 
     [TestCase]
-    public void DarkSkyProvider_Should_Return_Data()
+    public void GetForecast_Should_Return_Data()
     {      
       requestHandler.Setup(x => x.GetDeserializedObjectFromRequest<DarkSkyModel>(It.IsAny<string>())).Returns(darkSkyModel);      
 
@@ -41,7 +41,7 @@ namespace WeatherApp.Tests.Providers
 
       var model = provider.GetForecast(1, 2);
 
-      Assert.AreEqual("Cloudy", model.CurrentSummary);
+      Assert.AreEqual(darkSkyModel.Currently.Summary, model.CurrentSummary);
     }
   }
 }

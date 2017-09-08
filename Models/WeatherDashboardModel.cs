@@ -15,7 +15,7 @@ namespace Models
       Icon = model.Currently.Icon;
       IconUrl = null;
       Forecast = new List<DayDashboard>();
-      foreach (var day in model.Daily.data)
+      foreach (var day in model.Daily.Data)
       {
         var dayDashboard = new DayDashboard();
         dayDashboard.Summary = day.Summary;

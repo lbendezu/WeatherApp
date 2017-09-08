@@ -25,7 +25,7 @@ namespace Models
   #region Daily
   public class Daily
   {
-    public List<DarkSkyDay> data { get; set; }
+    public List<DarkSkyDay> Data { get; set; }
   }
 
   public class DarkSkyDay
