@@ -45,6 +45,10 @@
     <Compile Include="WeatherService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{3fa39cfe-c236-4cd0-b3b0-ba1d1d994e2d}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Providers\Providers.csproj">
       <Project>{2209c843-4a61-4205-a795-7a658c3d5d44}</Project>
       <Name>Providers</Name>
