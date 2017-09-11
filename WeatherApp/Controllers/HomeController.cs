@@ -18,10 +18,11 @@ namespace WeatherApp.Controllers
 
     public ActionResult Index()
     {
-      var model = SeedData();
+      //var model = SeedData();
       //weatherProvider = DependencyConfig.Container.GetInstance<IWeatherProvider>("DarkSky");
 
-      return View(model);
+      //return View(model);
+      return RedirectToAction("Index", "Aurelia");
     }
 
     public ActionResult About()

@@ -151,6 +151,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AureliaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,6 +160,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aurelia\.gitignore" />
+    <Content Include="Aurelia\config.js" />
+    <Content Include="Aurelia\favicon.ico" />
+    <Content Include="Aurelia\gulpfile.js" />
+    <Content Include="Aurelia\index.html" />
+    <Content Include="Aurelia\index.js" />
+    <Content Include="Aurelia\karma.conf.js" />
+    <Content Include="Aurelia\protractor.conf.js" />
+    <Content Include="Aurelia\src\app.html" />
+    <Content Include="Aurelia\src\app.js" />
+    <Content Include="Aurelia\src\blur-image.js" />
+    <Content Include="Aurelia\src\main.js" />
+    <Content Include="Aurelia\src\nav-bar.html" />
+    <Content Include="Aurelia\src\users.html" />
+    <Content Include="Aurelia\src\users.js" />
+    <Content Include="Aurelia\src\welcome.html" />
+    <Content Include="Aurelia\src\welcome.js" />
+    <Content Include="Aurelia\styles\styles.css" />
+    <Content Include="Aurelia\test\e2e\src\demo.spec.js" />
+    <Content Include="Aurelia\test\e2e\src\skeleton.po.js" />
+    <Content Include="Aurelia\test\e2e\src\welcome.po.js" />
+    <Content Include="Aurelia\test\unit\app.spec.js" />
+    <Content Include="Aurelia\test\unit\child-router.spec.js" />
+    <Content Include="Aurelia\test\unit\setup.js" />
+    <Content Include="Aurelia\test\unit\users.spec.js" />
+    <Content Include="Aurelia\wallaby.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -170,6 +197,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Aurelia\src\.eslintrc.json" />
+    <Content Include="Aurelia\.editorconfig" />
+    <Content Include="Aurelia\.eslintignore" />
+    <Content Include="Aurelia\.eslintrc.json" />
+    <Content Include="Aurelia\.npmignore" />
+    <Content Include="Aurelia\jsconfig.json" />
+    <Content Include="Aurelia\package.json" />
+    <Content Include="Aurelia\README.md" />
+    <Content Include="Aurelia\test\unit\.eslintrc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -195,6 +231,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Aurelia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

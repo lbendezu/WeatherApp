@@ -1,0 +1,24 @@
+<template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+      <div class="form-group">
+        <label for="cit">Cities</label>
+        <select value.bind="selectedCity" class="form-control">
+          <option repeat.for="city of cities" model.bind="city" id="cit">${city.name}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="prov">Providers</label>
+        <select value.bind="selectedProvider" class="form-control">
+          <option repeat.for="provider of forecastProviders" model.bind="provider" id="prov">${provider.name}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <p class="help-block">${fullName | upper}</p>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </section>
+</template>
