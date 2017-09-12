@@ -167,6 +167,16 @@
     <Content Include="Aurelia\config.js" />
     <Content Include="Aurelia\favicon.ico" />
     <Content Include="Aurelia\gulpfile.js" />
+    <Content Include="Aurelia\images\clear-day.png" />
+    <Content Include="Aurelia\images\clear-night.png" />
+    <Content Include="Aurelia\images\cloudy.png" />
+    <Content Include="Aurelia\images\fog.png" />
+    <Content Include="Aurelia\images\partly-cloudy-day.png" />
+    <Content Include="Aurelia\images\partly-cloudy-night.png" />
+    <Content Include="Aurelia\images\rain.png" />
+    <Content Include="Aurelia\images\sleet.png" />
+    <Content Include="Aurelia\images\snow.png" />
+    <Content Include="Aurelia\images\wind.png" />
     <Content Include="Aurelia\index.html" />
     <Content Include="Aurelia\index.js" />
     <Content Include="Aurelia\karma.conf.js" />

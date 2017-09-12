@@ -17,7 +17,12 @@ namespace WeatherApp.Mappers
       forecastModel.CurrentFahrenheit = model.CurrentFahrenheit;
       forecastModel.CurrentSummary = model.CurrentSummary;
       forecastModel.Icon = model.Icon;
-      forecastModel.IconUrl = model.IconUrl;
+
+      if (string.IsNullOrWhiteSpace(model.IconUrl))
+        forecastModel.IconUrl = "./images/" + model.Icon + ".png";
+      else
+        forecastModel.IconUrl = model.IconUrl;
+
       forecastModel.Forecast = new List<ForecastDayDashboard>();
 
       foreach (var modelDay in model.Forecast)
@@ -29,7 +34,12 @@ namespace WeatherApp.Mappers
         forecastDay.HighCelsius = modelDay.HighCelsius;
         forecastDay.HighFahrenheit = modelDay.HighFahrenheit;
         forecastDay.Icon = modelDay.Icon;
-        forecastDay.IconUrl = modelDay.IconUrl;
+
+        if (string.IsNullOrWhiteSpace(modelDay.IconUrl))
+          forecastDay.IconUrl = "./images/" + modelDay.Icon + ".png";
+        else
+          forecastDay.IconUrl = modelDay.IconUrl;
+
         forecastDay.Date = modelDay.Date;
         forecastModel.Forecast.Add(forecastDay);
       }
