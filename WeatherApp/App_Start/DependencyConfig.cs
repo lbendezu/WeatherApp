@@ -1,6 +1,7 @@
 ﻿using LightInject;
 using Models;
 using Models.Mappers;
+using Models.Util;
 using Providers;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace WeatherApp.App_Start
       Container.Register<IWeatherUndergroundProvider, WeatherUndergroundProvider>();
       Container.Register<IRequestHandler, RequestHandler>();
       Container.Register<IWeatherDashboardModelMapper, WeatherDashboardModelMapper>();
+      Container.Register<ISettingsManager, SettingsManager>(); 
       Container.RegisterControllers();
       Container.EnableMvc();
     }

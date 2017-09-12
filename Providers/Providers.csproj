@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
     <Compile Include="DarkSkyProvider.cs" />
     <Compile Include="IRequestHandler.cs" />
     <Compile Include="IDarkSkyProvider.cs" />

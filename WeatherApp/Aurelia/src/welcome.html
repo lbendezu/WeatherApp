@@ -34,8 +34,9 @@
           </div>
         </div>
         <div class="row" repeat.for="day of forecast.Forecast">
+          <require from="valueConverters/date-format"></require>
           <div class="col-lg-offset-3 col-lg-6">
-            <div class="col-lg-2 text-center">${day.Date}</div>
+            <div class="col-lg-2 text-center">${day.Date | dateFormat}</div>
             <div class="col-lg-2 text-center">Min: ${isCelsius ? day.LowCelsius : day.LowFahrenheit}</div>
             <div class="col-lg-2 text-center">Max: ${isCelsius ? day.HighCelsius : day.HighFahrenheit}</div>
             <div class="col-lg-6 text-center">${day.Summary}</div>

@@ -93,15 +93,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\DarkSkyModelMapperTest.cs" />
+    <Compile Include="Mappers\WeatherUndergroundModelMapperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DarkSkyProviderTest.cs" />
     <Compile Include="Providers\WeatherUndergroundProviderTest.cs" />
+    <Compile Include="Utils\SettingsManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

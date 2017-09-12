@@ -176,8 +176,7 @@
     <Content Include="Aurelia\src\blur-image.js" />
     <Content Include="Aurelia\src\main.js" />
     <Content Include="Aurelia\src\nav-bar.html" />
-    <Content Include="Aurelia\src\users.html" />
-    <Content Include="Aurelia\src\users.js" />
+    <Content Include="Aurelia\src\valueConverters\date-format.js" />
     <Content Include="Aurelia\src\welcome.html" />
     <Content Include="Aurelia\src\welcome.js" />
     <Content Include="Aurelia\styles\styles.css" />

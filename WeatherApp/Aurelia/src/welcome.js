@@ -1,6 +1,7 @@
 //import {computedFrom} from 'aurelia-framework';
 import { inject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
+import moment from 'moment';
 import 'fetch';
 
 @inject(HttpClient)
@@ -20,11 +21,6 @@ export class Welcome {
 
     this.http = http;
 
-  }
-
-  submit() {
-    this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
   }
 
   getForecast() {

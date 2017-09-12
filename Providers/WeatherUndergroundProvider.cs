@@ -1,5 +1,6 @@
 ﻿using Models;
 using Models.Mappers;
+using Models.Util;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,23 +14,25 @@ namespace Providers
   {
     IRequestHandler requestHandler;
     IWeatherUndergroundModelMapper mapper;
+    ISettingsManager settingsManager;
 
-    public WeatherUndergroundProvider(IRequestHandler requestHandler, IWeatherUndergroundModelMapper mapper)
+    public WeatherUndergroundProvider(IRequestHandler requestHandler, IWeatherUndergroundModelMapper mapper, ISettingsManager settingsManager)
     {
       this.requestHandler = requestHandler ?? throw new ArgumentNullException("RequestHandler is null");
       this.mapper = mapper ?? throw new ArgumentNullException("WeatherUndergroundModelMapper is null");
+      this.settingsManager = settingsManager ?? throw new ArgumentNullException("SettingsManager is null");
     }
 
     public WeatherDashboardModel GetForecast(decimal latitude, decimal longitude)
     {
-      string weatherUndergroundApiUrl = ConfigurationManager.AppSettings[Constants.WEATHER_UNDERGROUND_API_URL];
-      string weatherUndergroundApiKey = ConfigurationManager.AppSettings[Constants.WEATHER_UNDERGROUND_API_KEY];
+      string weatherUndergroundApiUrl = settingsManager.Get(Constants.WEATHER_UNDERGROUND_API_URL);
+      string weatherUndergroundApiKey = settingsManager.Get(Constants.WEATHER_UNDERGROUND_API_KEY);
 
       var url = string.Format(weatherUndergroundApiUrl, weatherUndergroundApiKey, latitude, longitude);
 
       var response = requestHandler.GetDeserializedObjectFromRequest<WeatherUndergroundModel>(url);
 
-      return mapper.Map(response); ;
+      return mapper.Map(response);
     }
   }
 }

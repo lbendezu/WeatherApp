@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,12 @@ namespace Models.Mappers
 {
   public class DarkSkyModelMapper : IDarkSkyModelMapper
   {
+    ISettingsManager settingsManager;
+
+    public DarkSkyModelMapper(ISettingsManager settingsManager)
+    {
+      this.settingsManager = settingsManager;
+    }
     public WeatherDashboardModel Map(DarkSkyModel model)
     {
       var dashboardModel = new WeatherDashboardModel();
@@ -18,7 +25,7 @@ namespace Models.Mappers
       dashboardModel.Icon = model.Currently.Icon;
       dashboardModel.IconUrl = null;
       dashboardModel.Forecast = new List<DayDashboard>();
-      foreach (var day in model.Daily.Data)
+      foreach (var day in model.Daily.Data.Take(int.Parse(settingsManager.Get(Constants.FORECAST_DEFAULT_SIZE))))
       {
         var dayDashboard = new DayDashboard();
         dayDashboard.Summary = day.Summary;
