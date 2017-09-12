@@ -1,7 +1,8 @@
 <template>
   <section class="au-animate">
     <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
+    <form role="form">
+
       <div class="form-group">
         <label for="cit">Cities</label>
         <select value.bind="selectedCity" class="form-control">
@@ -13,12 +14,34 @@
         <select value.bind="selectedProvider" class="form-control">
           <option repeat.for="provider of forecastProviders" model.bind="provider" id="prov">${provider.name}</option>
         </select>
-      </div>
+      </div>      
+      
+      <button type="button" click.delegate="getForecast()" class="btn btn-default">Submit</button>
+
       <div class="form-group">
-        <label>Full Name</label>
-        <p class="help-block">${fullName | upper}</p>
+        <label for="scal">Scale</label>
+        <select value.bind="selectedScale" class="form-control" change.delegate="checkScale()">
+          <option repeat.for="scale of scales" model.bind="scale" id="scal">${scale.name}</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+
+      <div class="form-group" if.bind="forecast.Forecast.length > 0">
+        <div class="row">
+          <div class="col-lg-offset-4 col-lg-4">
+            <div class="row text-center">Right Now</div>
+            <div class="row text-center">${isCelsius ? forecast.CurrentCelsius : forecast.CurrentFahrenheit }</div>
+            <div class="row text-center">${forecast.CurrentSummary}</div>
+          </div>
+        </div>
+        <div class="row" repeat.for="day of forecast.Forecast">
+          <div class="col-lg-offset-3 col-lg-6">
+            <div class="col-lg-2 text-center">${day.Date}</div>
+            <div class="col-lg-2 text-center">Min: ${isCelsius ? day.LowCelsius : day.LowFahrenheit}</div>
+            <div class="col-lg-2 text-center">Max: ${isCelsius ? day.HighCelsius : day.HighFahrenheit}</div>
+            <div class="col-lg-6 text-center">${day.Summary}</div>
+          </div>
+        </div>
+      </div>
     </form>
   </section>
 </template>

@@ -19,7 +19,6 @@ export class Users {
   }
 
   activate() {
-    debugger;
     return this.http.fetch('home/index')
       .then(response => response.json())
       .then(users => this.users = users);

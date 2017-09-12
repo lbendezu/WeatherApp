@@ -94,9 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Providers\DarkSkyProviderTest.cs" />
-    <Compile Include="Providers\WUndergroundProviderTest.cs" />
+    <Compile Include="Providers\WeatherUndergroundProviderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

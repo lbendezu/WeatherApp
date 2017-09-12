@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Providers;
 using Models;
 using System.Collections.Generic;
+using Models.Mappers;
 
 namespace WeatherApp.Tests.Providers
 {
@@ -11,6 +12,7 @@ namespace WeatherApp.Tests.Providers
   public class DarkSkyProviderTest
   {
     private Mock<IRequestHandler> requestHandler;
+    private Mock<IDarkSkyModelMapper> mapper;
     private DarkSkyModel darkSkyModel;
 
     private DarkSkyModel GetDarkSkyModel() {
@@ -29,19 +31,22 @@ namespace WeatherApp.Tests.Providers
     [SetUp]
     public void Initialize() {
       requestHandler = new Mock<IRequestHandler>();
+      mapper = new Mock<IDarkSkyModelMapper>();
       darkSkyModel = GetDarkSkyModel();
     }
 
     [TestCase]
-    public void GetForecast_Should_Return_Data()
+    public void GetForecast_ShouldCallRequiredMethods()
     {      
-      requestHandler.Setup(x => x.GetDeserializedObjectFromRequest<DarkSkyModel>(It.IsAny<string>())).Returns(darkSkyModel);      
+      //ARRANGE
+      var provider = new DarkSkyProvider(requestHandler.Object, mapper.Object);
 
-      var provider = new DarkSkyProvider(requestHandler.Object);
-
+      //ACT
       var model = provider.GetForecast(1, 2);
 
-      Assert.AreEqual(darkSkyModel.Currently.Summary, model.CurrentSummary);
+      //ASSERT
+      requestHandler.Verify(x => x.GetDeserializedObjectFromRequest<DarkSkyModel>(It.IsAny<string>()), Times.Once);
+      mapper.Verify(x => x.Map(It.IsAny<DarkSkyModel>()), Times.Once);
     }
   }
 }

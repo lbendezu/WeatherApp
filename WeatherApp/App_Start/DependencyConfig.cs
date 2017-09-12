@@ -1,10 +1,12 @@
 ﻿using LightInject;
 using Models;
+using Models.Mappers;
 using Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WeatherApp.Mappers;
 
 namespace WeatherApp.App_Start
 {
@@ -15,10 +17,14 @@ namespace WeatherApp.App_Start
     public static void Configure()
     {
       Container = new ServiceContainer();
-      Container.Register<IWeatherProvider, DarkSkyProvider>("DarkSky");
-      Container.Register<IWeatherProvider, WUndergroundProvider>("WUnderground");
+      Container.Register<IDarkSkyModelMapper, DarkSkyModelMapper>();
+      Container.Register<IWeatherUndergroundModelMapper, WeatherUndergroundModelMapper>();      
+      Container.Register<IDarkSkyProvider, DarkSkyProvider>();
+      Container.Register<IWeatherUndergroundProvider, WeatherUndergroundProvider>();
       Container.Register<IRequestHandler, RequestHandler>();
+      Container.Register<IWeatherDashboardModelMapper, WeatherDashboardModelMapper>();
       Container.RegisterControllers();
+      Container.EnableMvc();
     }
   }
 }

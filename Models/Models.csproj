@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\DarkSkyModelMapper.cs" />
+    <Compile Include="Mappers\IDarkSkyModelMapper.cs" />
+    <Compile Include="Mappers\IWeatherUndergroundModelMapper.cs" />
+    <Compile Include="Mappers\WeatherUndergroundModelMapper.cs" />
     <Compile Include="WeatherDashboardModel.cs" />
-    <Compile Include="WUndergroundModel.cs" />
+    <Compile Include="WeatherUndergroundModel.cs" />
     <Compile Include="DarkSkyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

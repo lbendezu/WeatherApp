@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,16 +10,18 @@ using System.Threading.Tasks;
 
 namespace Providers
 {
-  public class DarkSkyProvider : IWeatherProvider
+  public class DarkSkyProvider : IDarkSkyProvider
   {
     IRequestHandler requestHandler;
+    IDarkSkyModelMapper mapper;
 
-    public DarkSkyProvider(IRequestHandler requestHandler)
+    public DarkSkyProvider(IRequestHandler requestHandler, IDarkSkyModelMapper mapper)
     {
-      this.requestHandler = requestHandler;
+      this.requestHandler = requestHandler ?? throw new ArgumentNullException("RequestHandler is null");
+      this.mapper = mapper ?? throw new ArgumentNullException("DarkSkyModelMapper is null");
     }
 
-    public WeatherDashboardModel GetForecast(long latitude, long longitude)
+    public WeatherDashboardModel GetForecast(decimal latitude, decimal longitude)
     {
       string darkSkyApiUrl = ConfigurationManager.AppSettings[Constants.DARK_SKY_API_URL];
       string darkSkyApiKey = ConfigurationManager.AppSettings[Constants.DARK_SKY_API_KEY];
@@ -27,9 +30,7 @@ namespace Providers
 
       var response = requestHandler.GetDeserializedObjectFromRequest<DarkSkyModel>(url);
 
-      var model = new WeatherDashboardModel(response);
-
-      return model;
+      return mapper.Map(response);
     }
   }
 }

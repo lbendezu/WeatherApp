@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Providers
 {
-  public interface IWeatherProvider
+  public interface IWeatherUndergroundProvider
   {
-    WeatherDashboardModel GetForecast(long latitude, long longitude);
+    WeatherDashboardModel GetForecast(decimal latitude, decimal longitude);
   }
 }

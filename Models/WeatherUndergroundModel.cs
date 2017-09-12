@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-  public class WUndergroundModel
+  public class WeatherUndergroundModel
   {
-    public CurrentObservation CurrentObservation { get; set; }
+    public CurrentObservation Current_Observation { get; set; }
     public Forecast Forecast { get; set; }
   }
 
   public class CurrentObservation {
-    public int ObservationEpoch { get; set; }
-    public decimal TempF { get; set; } //Fahrenheit
-    public decimal TempC { get; set; } //Celsius
+    public int Observation_Epoch { get; set; }
+    public decimal Temp_F { get; set; } //Fahrenheit
+    public decimal Temp_C { get; set; } //Celsius
     public string Weather { get; set; }
     public string Icon { get; set; }
-    public string IconUrl { get; set; }
+    public string Icon_Url { get; set; }
   }
 
   public class Forecast {
@@ -26,19 +26,19 @@ namespace Models
   }
 
   public class SimpleForecast {
-    public List<WUndergroundDay> ForecastDay { get; set; }
+    public List<WeatherUndergroundDay> ForecastDay { get; set; }
   }
 
-  public class WUndergroundDay {
+  public class WeatherUndergroundDay {
     public string Conditions { get; set; }
     public string Icon { get; set; }
     public string IconUrl { get; set; }
     public Low Low { get; set; }
     public High High { get; set; }
-    public WUndergroundDate Date { get; set; }
+    public WeatherUndergroundDate Date { get; set; }
   }
 
-  public class WUndergroundDate {
+  public class WeatherUndergroundDate {
     public int Epoch { get; set; } //Epoch time
   }
 
