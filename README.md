@@ -12,7 +12,7 @@ In order to run this project we will need the following installed:
 * [npm](https://github.com/felixrieseberg/npm-windows-upgrade)
 * [Git](https://git-scm.com/)
 
-After that we need to install globally some required packages in order for Aurelia to run:
+After that we need to install globally some required packages in order for Aurelia to run (using cmd):
 
 * Gulp
 ```
@@ -31,7 +31,7 @@ Last but not least, we need to install node-gyp which will help us to build the 
 Getting started
 ----------------
 
-After we have downloaded the repository and build the solution we will need to run the following in the Aurelia folder (WeatherApp/WeatherApp/Aurelia/):
+After we have downloaded the repository and build the solution we will need to run the following (using cmd) in the Aurelia folder (WeatherApp/WeatherApp/Aurelia/):
 
 ```
 npm install
