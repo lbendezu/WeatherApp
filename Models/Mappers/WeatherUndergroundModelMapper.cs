@@ -35,7 +35,7 @@ namespace Models.Mappers
         dayDashboard.HighCelsius = day.High.Celsius;
         dayDashboard.HighFahrenheit = day.High.Fahrenheit;
         dayDashboard.Icon = day.Icon;
-        dayDashboard.IconUrl = day.IconUrl;
+        dayDashboard.IconUrl = day.Icon_Url;
         dayDashboard.Date = new DateTime(1970, 1, 1).AddSeconds(day.Date.Epoch);
         dashboardModel.Forecast.Add(dayDashboard);
       }

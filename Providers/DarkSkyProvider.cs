@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Providers
 {
-  public class DarkSkyProvider : IDarkSkyProvider
+  public class DarkSkyProvider : IWeatherProvider
   {
     IRequestHandler requestHandler;
     IDarkSkyModelMapper mapper;

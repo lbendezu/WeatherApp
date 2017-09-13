@@ -46,7 +46,7 @@ namespace Models.Mappers
       weatherUndergroundDay.Low.Celsius = 14;
       weatherUndergroundDay.Low.Fahrenheit = 43;
       weatherUndergroundDay.Icon = "Numb";
-      weatherUndergroundDay.IconUrl = "Numb";
+      weatherUndergroundDay.Icon_Url = "Numb";
       model.Forecast.SimpleForecast.ForecastDay.Add(weatherUndergroundDay);
       return model;
     }

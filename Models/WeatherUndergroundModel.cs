@@ -32,7 +32,7 @@ namespace Models
   public class WeatherUndergroundDay {
     public string Conditions { get; set; }
     public string Icon { get; set; }
-    public string IconUrl { get; set; }
+    public string Icon_Url { get; set; }
     public Low Low { get; set; }
     public High High { get; set; }
     public WeatherUndergroundDate Date { get; set; }

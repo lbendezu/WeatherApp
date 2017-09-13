@@ -20,8 +20,8 @@ namespace WeatherApp.App_Start
       Container = new ServiceContainer();
       Container.Register<IDarkSkyModelMapper, DarkSkyModelMapper>();
       Container.Register<IWeatherUndergroundModelMapper, WeatherUndergroundModelMapper>();      
-      Container.Register<IDarkSkyProvider, DarkSkyProvider>();
-      Container.Register<IWeatherUndergroundProvider, WeatherUndergroundProvider>();
+      Container.Register<IWeatherProvider, DarkSkyProvider>("DarkSky");
+      Container.Register<IWeatherProvider, WeatherUndergroundProvider>("WeatherUnderground");
       Container.Register<IRequestHandler, RequestHandler>();
       Container.Register<IWeatherDashboardModelMapper, WeatherDashboardModelMapper>();
       Container.Register<ISettingsManager, SettingsManager>(); 

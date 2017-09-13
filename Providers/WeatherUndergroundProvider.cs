@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Providers
 {
-  public class WeatherUndergroundProvider : IWeatherUndergroundProvider
+  public class WeatherUndergroundProvider : IWeatherProvider
   {
     IRequestHandler requestHandler;
     IWeatherUndergroundModelMapper mapper;

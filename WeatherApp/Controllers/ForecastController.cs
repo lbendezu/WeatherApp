@@ -5,20 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WeatherApp.App_Start;
 using WeatherApp.Mappers;
 using WeatherApp.Models;
+using LightInject;
 
 namespace WeatherApp.Controllers
 {
   public class ForecastController : Controller
   {
-    private IWeatherUndergroundProvider weatherUndergroundProvider;
-    private IDarkSkyProvider darkSkyProvider;
+    private IWeatherProvider weatherProvider;
     private IWeatherDashboardModelMapper mapper;   
 
-    public ForecastController(IWeatherUndergroundProvider weatherUndergroundProvider, IDarkSkyProvider darkSkyProvider, IWeatherDashboardModelMapper mapper) {
-      this.weatherUndergroundProvider = weatherUndergroundProvider;
-      this.darkSkyProvider = darkSkyProvider;
+    public ForecastController(IWeatherDashboardModelMapper mapper) {      
       this.mapper = mapper;
     }
 
@@ -28,15 +27,9 @@ namespace WeatherApp.Controllers
     {
       var weatherDashboardModel = new WeatherDashboardModel();
 
-      if (provider == "DarkSky")
-      {
-        weatherDashboardModel = darkSkyProvider.GetForecast(latitude, longitude);
-      }
-      else if (provider == "WeatherUnderground")
-      {
-        weatherDashboardModel = weatherUndergroundProvider.GetForecast(latitude, longitude);
-      }
-
+      weatherProvider = DependencyConfig.Container.GetInstance<IWeatherProvider>(provider);
+      weatherDashboardModel = weatherProvider.GetForecast(latitude, longitude);
+      
       var model = mapper.Map(weatherDashboardModel);
 
       return Json(model, JsonRequestBehavior.AllowGet);
