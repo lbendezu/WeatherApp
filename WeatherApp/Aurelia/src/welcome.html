@@ -3,27 +3,36 @@
     <h2>${heading}</h2>
     <form role="form">
 
-      <div class="form-group">
-        <label for="cit">Cities</label>
-        <select value.bind="selectedCity" class="form-control">
-          <option repeat.for="city of cities" model.bind="city" id="cit">${city.name}</option>
-        </select>
+      <div class="row col-lg-offset-4 col-lg-4">
+        <div class="form-group">
+          <label for="cit">Cities</label>
+          <select value.bind="selectedCity" class="form-control">
+            <option repeat.for="city of cities" model.bind="city" id="cit">${city.name}</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="prov">Providers</label>
-        <select value.bind="selectedProvider" class="form-control">
-          <option repeat.for="provider of forecastProviders" model.bind="provider" id="prov">${provider.name}</option>
-        </select>
-      </div>      
-      
-      <button type="button" click.delegate="getForecast()" class="btn btn-default">Submit</button>
 
-      <div class="form-group">
-        <label for="scal">Scale</label>
-        <select value.bind="selectedScale" class="form-control" change.delegate="checkScale()">
-          <option repeat.for="scale of scales" model.bind="scale" id="scal">${scale.name}</option>
-        </select>
+      <div class="row col-lg-offset-4 col-lg-4">
+        <div class="form-group">
+          <label for="prov">Providers</label>
+          <select value.bind="selectedProvider" class="form-control">
+            <option repeat.for="provider of forecastProviders" model.bind="provider" id="prov">${provider.name}</option>
+          </select>
+        </div>
       </div>
+
+      <div class="row col-lg-offset-4 col-lg-4">
+        <div class="form-group">
+          <label for="scal">Scale</label>
+          <select value.bind="selectedScale" class="form-control" change.delegate="checkScale()">
+            <option repeat.for="scale of scales" model.bind="scale" id="scal">${scale.name}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row col-lg-offset-4 col-lg-4">
+        <button type="button" click.delegate="getForecast()" class="btn btn-default">Submit</button>
+      </div>            
 
       <div class="form-group" if.bind="forecast.Forecast.length > 0">
         <div class="row">
@@ -36,12 +45,12 @@
         </div>
         <div class="row" repeat.for="day of forecast.Forecast">
           <require from="valueConverters/date-format"></require>
-          <div class="col-lg-offset-3 col-lg-6">
-            <div class="col-lg-1 text-center">${day.Date | dateFormat}</div>
-            <div class="col-lg-1 text-center"><img src.bind="day.IconUrl"/></div>
-            <div class="col-lg-2 text-center">Min: ${isCelsius ? day.LowCelsius : day.LowFahrenheit}</div>
-            <div class="col-lg-2 text-center">Max: ${isCelsius ? day.HighCelsius : day.HighFahrenheit}</div>
-            <div class="col-lg-6 text-center">${day.Summary}</div>
+          <div class="col-lg-offset-4 col-lg-6">
+            <div class="col-lg-1 text-center defaultHeight">${day.Date | dateFormat}</div>
+            <div class="col-lg-1 text-center"><img src.bind="day.IconUrl" /></div>
+            <div class="col-lg-2 text-center defaultHeight">Min: ${isCelsius ? day.LowCelsius : day.LowFahrenheit}</div>
+            <div class="col-lg-2 text-center defaultHeight">Max: ${isCelsius ? day.HighCelsius : day.HighFahrenheit}</div>
+            <div class="col-lg-6 text-left defaultHeight">${day.Summary}</div>
           </div>
         </div>
       </div>

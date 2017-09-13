@@ -173,3 +173,7 @@ div.au-stagger {
     opacity: 1;
   }
 }
+
+.defaultHeight {
+  line-height: 64px;
+}
